@@ -25,7 +25,9 @@
                                 <div class="contact-wrap w-100 p-md-5 p-4">
                                     <h3 class="mb-4">Kontak Kami</h3>
                                     <div id="form-message-warning" class="mb-4"></div>
-                                    <form method="POST" id="contactForm" name="contactForm" class="contactForm">
+                                    <form method="POST" action="{{ route('pesans') }}" id="contactForm" name="contactForm" class="contactForm">
+                                       @csrf
+                                       @method('POST')
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="form-group">

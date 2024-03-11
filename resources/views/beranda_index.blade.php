@@ -99,7 +99,7 @@
                           </div>
                         </div>
                         <span class="fw-semibold d-block mb-1">Data Pesan Masuk</span>
-                        <h3 class="card-title mb-2">$14,857</h3>
+                        <h3 class="card-title mb-2">{{ $pesan }}</h3>
                       </div>
                     </div>
                   </div>

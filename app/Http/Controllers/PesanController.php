@@ -2,12 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Pesan;
+use App\Models\Pesan as Model;
 use App\Http\Requests\StorePesanRequest;
 use App\Http\Requests\UpdatePesanRequest;
 
 class PesanController extends Controller
 {
+    private $viewIndex = 'pesan_index';
+    private $viewCreate = 'pesan_form';
+    private $viewEdit = 'pesan_form';
+    private $viewShow = 'pesan_show';
+    private $routePrefix = 'pesan';
     /**
      * Display a listing of the resource.
      *
@@ -15,7 +20,11 @@ class PesanController extends Controller
      */
     public function index()
     {
-        //
+        return view('data-pesan.' . $this->viewIndex,[
+            'models' => Model::latest()->paginate(50),
+            'routePrefix' => $this->routePrefix,
+            'title' => 'Pesan Masuk'
+        ]);
     }
 
     /**
@@ -36,7 +45,10 @@ class PesanController extends Controller
      */
     public function store(StorePesanRequest $request)
     {
-        //
+        $requestData = $request->validated();
+        Model::create($requestData);
+        flash('Data berhasil disimpan');
+        return back();
     }
 
     /**
@@ -45,7 +57,7 @@ class PesanController extends Controller
      * @param  \App\Models\Pesan  $pesan
      * @return \Illuminate\Http\Response
      */
-    public function show(Pesan $pesan)
+    public function show($id)
     {
         //
     }
@@ -56,7 +68,7 @@ class PesanController extends Controller
      * @param  \App\Models\Pesan  $pesan
      * @return \Illuminate\Http\Response
      */
-    public function edit(Pesan $pesan)
+    public function edit($id)
     {
         //
     }
@@ -68,7 +80,7 @@ class PesanController extends Controller
      * @param  \App\Models\Pesan  $pesan
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdatePesanRequest $request, Pesan $pesan)
+    public function update(UpdatePesanRequest $request, $id)
     {
         //
     }
@@ -79,7 +91,7 @@ class PesanController extends Controller
      * @param  \App\Models\Pesan  $pesan
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Pesan $pesan)
+    public function destroy($id)
     {
         //
     }

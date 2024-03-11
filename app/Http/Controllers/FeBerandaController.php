@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Blog;
 use App\Models\Project;
+use App\Models\Slider;
 use App\Models\Team;
 use Illuminate\Http\Request;
 
@@ -16,9 +17,10 @@ class FeBerandaController extends Controller
      */
     public function index()
     {
+        $slide = Slider::all();
         $project = Project::all();
         $blog = Blog::all();
-        return view('fe.beranda', compact('project', 'blog'));
+        return view('fe.beranda', compact('project', 'blog', 'slide'));
     }
 
     public function about()

@@ -126,7 +126,18 @@
                   <div data-i18n="Basic">Data Team</div>
                 </a>
               </li>
-
+              <li class="menu-item {{ ((\Route::is('pesan.*') ? 'active' : '' ))}} ">
+                <a href="{{ route('pesan.index') }}" class="menu-link">
+                    <i class='menu-icon tf-icons bx bxs-message' ></i>
+                  <div data-i18n="Basic">Pesan Masuk</div>
+                </a>
+              </li>
+              <li class="menu-item {{ ((\Route::is('slides.*') ? 'active' : '' ))}} ">
+                <a href="{{ route('slides.index') }}" class="menu-link">
+                    <i class='menu-icon tf-icons bx bxs-image-alt' ></i>
+                  <div data-i18n="Basic">Data Slide</div>
+                </a>
+              </li>
           </ul>
         </aside>
         <!-- / Menu -->

@@ -2,24 +2,27 @@
 @section('content')
 <div class="hero-wrap">
     <div class="home-slider owl-carousel">
-        <div class="slider-item" style="background-image:url({{asset('fe')}}/images/kontraktor/1.jpeg);">
+        @foreach ($slide as $item)
+        <div class="slider-item" style="background-image:url({{ \Storage::url($item->photo) }});">
             <div class="overlay"></div>
             <div class="container">
                 <div class="row no-gutters slider-text align-items-center justify-content-center">
                     <div class="col-md-12 ftco-animate">
                         <div class="text w-100 text-center">
-                            <h1>PT ALFA NARAPATI KARYA</h1>
-                            <h2>WUJUDKAN BANGUNAN IMPIAN ANDA BERSAMA KAMI</h2>
+                            <h1>{{ $item->judul }}</h1>
+                            <h2>{{ $item->quote }}</h2>
                             <br>
-                            <a href="https://wa.me/6282143198418" type="button" class="btn btn-success"><span class="fa fa-whatsapp"><i
+                            <a href="https://wa.me/{{ $item->wa }}" type="button" class="btn btn-success"><span class="fa fa-whatsapp"><i
                                         class="sr-only"></i></span> Hubungi Kami</a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        @endforeach
 
-        <div class="slider-item" style="background-image:url({{asset('fe')}}/images/kontraktor/3.jpeg);">
+
+        {{-- <div class="slider-item" style="background-image:url({{asset('fe')}}/images/kontraktor/3.jpeg);">
             <div class="overlay"></div>
             <div class="container">
                 <div class="row no-gutters slider-text align-items-center justify-content-center">
@@ -51,7 +54,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
     </div>
 </div>
 

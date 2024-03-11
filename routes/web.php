@@ -20,8 +20,10 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\PtController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\MProductController;
+use App\Http\Controllers\PesanController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\RealisasiController;
+use App\Http\Controllers\SliderController;
 use App\Http\Controllers\TeamController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -46,6 +48,8 @@ Route::get('project', [FeBerandaController::class, 'project'])->name('project');
 Route::get('team', [FeBerandaController::class, 'team'])->name('team');
 Route::get('contact', [FeBerandaController::class, 'contact'])->name('contact');
 
+Route::post('pesans', [PesanController::class, 'store'])->name('pesans');
+
 Route::get('login', function () {
     return view('auth.login');
 });
@@ -55,6 +59,8 @@ Route::prefix('internal')->middleware(['auth', 'akses:superadmin,admin,user'])->
     Route::resource('projects', ProjectController::class);
     Route::resource('blogs', BlogController::class);
     Route::resource('teams', TeamController::class);
+    Route::resource('pesan', PesanController::class);
+    Route::resource('slides', SliderController::class);
 
     Route::get('beranda', [BerandaController::class, 'index'])->name('beranda');
 

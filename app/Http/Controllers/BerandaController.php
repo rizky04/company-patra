@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Blog;
+use App\Models\Pesan;
 use App\Models\Project;
 use App\Models\Team;
 use Illuminate\Http\Request;
@@ -19,7 +20,8 @@ class BerandaController extends Controller
         $blog = Blog::count();
         $project = Project::count();
         $team = Team::count();
-        return view('beranda_index', compact('blog', 'project', 'team'));
+        $pesan = Pesan::count();
+        return view('beranda_index', compact('blog', 'project', 'team', 'pesan'));
     }
 
     /**
